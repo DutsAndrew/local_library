@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('layout') -%>
+    <h1><%= title %></h1>
+    <ul>
+      <% if (author_list) { %>
+        <% author_list.forEach((author) => { %>
+          <li>
+            <a href="<%= author.url %>">
+              <p>
+                <%= author.name %> - <%= author.lifespan_formatted %>
+              </p>
+            </a>
+          </li>
+        <% }); %>
+      <% } else { %>
+        <li>
+          There are no authors.
+        </li>
+      <% } %>
+    </ul>
+  </body>
+</html>

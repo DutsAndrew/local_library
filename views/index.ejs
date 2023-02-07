@@ -2,9 +2,13 @@
 <html>
   <head>
     <title><%= title %></title>
+    <meta lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
+    <%- include('layout') -%>
     <h1><%= title %></h1>
     <p>Welcome to <em>LocalLibrary</em>, a very basic Express Website developed as a tutorial on the Mozilla Developer Network.</p>
 
@@ -13,7 +17,7 @@
     <% if (error) { %>
       <p>Error getting the dynamic content</p>
     <% } else { %>
-      
+
       <p>The library has the following record counts:</p>
       <ul>
         <li><strong>Books:</strong>
