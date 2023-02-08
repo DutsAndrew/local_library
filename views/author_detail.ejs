@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('layout') -%>
+    <h1>Author: <%= author.name %></h1>
+    <p>
+      <%= author.date_of_birth - author.date_of_death %>
+    </p>
+
+    <div style="margin-left: 20px; margin-top: 20px">
+      <h4>
+        Books
+      </h4>
+
+      <dl>
+        <% if (author_books) { %>
+          <% author_books.forEach((book) => { %>
+            <dt>
+              <a href="<%= book.url %>">
+                <%= book.title %>
+              </a>
+            </dt>
+            <dd>
+              <%= book.summary %>
+            </dd>
+          <% }); %>
+        <% } else { %>
+          <p>
+            This author has no books.
+          </p>
+        <% } %>
+      </dl>
+    </div>
+  </body>
+</html>
