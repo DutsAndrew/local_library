@@ -54,15 +54,15 @@
           <hr>
           <% if (val.status == "Available") { %>
             <p class="text-success">
-              val.status
+              <%= val.status %>
             </p>
           <% } else if (val.status == "Maintenance") { %>
             <p class="text-danger">
-              val.status
+              <%= val.status %>
             </p>
           <% } else { %>
             <p class="text-warning">
-              val.status
+              <%= val.status %>
             </p>
           <% } %>
           <p>
