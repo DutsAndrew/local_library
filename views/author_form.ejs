@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('layout') -%>
+    <h1><%= title %></h1>
+    <form method="POST" action="">
+
+      <div class="form-group">
+        <label for="first_name">
+          First Name:
+        </label>
+        <input 
+          id="first_name" 
+          class="form-control"
+          type="text"
+          placeholder="First name"
+          name="first_name"
+          required
+          value="<% typeof(author) === 'undefined' ? '' : author.first_name %>"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="family_name">
+          Family Name:
+        </label>
+        <input 
+          id="family_name" 
+          class="form-control"
+          type="text"
+          placeholder="Family name"
+          name="family_name"
+          required
+          value="<% typeof(author) === 'undefined' ? '' : author.family_name %>"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="date_of_birth">
+          Date of birth:
+        </label>
+        <input 
+          id="date_of_birth"
+          class="form-control"
+          type="date"
+          name="date_of_birth"
+          placeholder="dd/mm/yyyy"
+          value="<% typeof(author) === 'undefined' ? '' : author.date_of_birth %>"
+          required >
+      </div>
+
+      <div class="form-group">
+        <label for="date_of_death">
+          Date of death:
+        </label>
+        <input 
+          id="date_of_death"
+          class="form-control"
+          type="date"
+          name="date_of_death"
+          placeholder="dd/mm/yyyy"
+          value="<% typeof(author) === 'undefined' ? '' : author.date_of_death %>">
+      </div>
+
+      <button 
+        class="btn, btn-primary"
+        type="submit">
+        Submit
+      </button>
+    </form>
+    <% if (typeof(errors) !== 'undefined') { %>
+      <ul>
+        <% errors.forEach((error) => { %>
+          <li>
+            error.msg
+          </li>
+        <% }); %>
+      </ul>
+    <% } %>
+  </body>
+</html>

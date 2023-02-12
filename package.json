@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "server-start": "DEBUG=express-local_library:* npm run dev",
-    "lintejs": "ejslint views/book_detail.ejs"
+    "lintejs": "ejslint views/genre_form.ejs"
   },
   "dependencies": {
     "async": "^3.2.4",
@@ -14,6 +14,7 @@
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-validator": "^6.14.3",
     "http-errors": "~1.6.3",
     "luxon": "^3.2.1",
     "mongoose": "^6.9.0",
