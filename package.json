@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "server-start": "DEBUG=express-local_library:* npm run dev",
-    "lintejs": "ejslint views/genre_form.ejs"
+    "lintejs": "ejslint views/bookinstance_form.ejs"
   },
   "dependencies": {
     "async": "^3.2.4",
