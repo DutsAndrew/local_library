@@ -2,6 +2,7 @@ const Author = require('../models/author');
 const async = require("async");
 const Book = require("../models/book");
 const { body, validationResult } = require("express-validator");
+const debug = require("debug");
 
 // display list of all authors
 exports.author_list = (req, res, next) => {
@@ -152,8 +153,22 @@ exports.author_delete_post = (req, res, next) => {
 };
 
 // display author update form on GET
-exports.author_update_get = (req, res) => {
-  res.send('NOT IMPLEMENTED: author update get');
+exports.author_update_get = (req, res, next) => {
+  req.sanitize("id")
+    .escape()
+    .trim()
+  
+  Author.findById(req.params.id, (err, author) => {
+    if (err) {
+      debug(`update error: ${err}`);
+      return next(err);
+    }
+
+    res.render("author_form", {
+      title: "Update Author",
+      author: author,
+    });
+  });
 };
 
 // handle author update on POST

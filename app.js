@@ -8,6 +8,8 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const wikiRouter = require('./routes/wiki');
 const catalogRouter = require('./routes/catalog');
+const compression = require("compression");
+const helmet = require("helmet");
 
 const app = express();
 
@@ -25,10 +27,13 @@ async function main() {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(helmet()); // sets appropriate HTTP headers to help with known web vulnerabilities
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(compression()); // compress all routes
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
