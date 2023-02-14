@@ -15,7 +15,8 @@ const app = express();
 
 // mongoose connection and set up
 const mongoose = require('mongoose');
-const mongoDB = 'mongodb+srv://admin:admin@library.dkpdfru.mongodb.net/local_library?retryWrites=true&w=majority'
+const dev_db_url = 'mongodb+srv://admin:admin@library.dkpdfru.mongodb.net/local_library?retryWrites=true&w=majority';
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.set('strictQuery', false);
 
 main().catch(err => console.log(err));
