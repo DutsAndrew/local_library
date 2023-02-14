@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('layout') -%>
+
+    <h1 id="title"> 
+      <%= title %>
+    </h1>
+
+    <p>
+      Do you really want to delete this Book Instance?
+    </p>
+
+    <form method="POST" action="">
+      <div class="form-group">
+        <input 
+          id="bookinstanceid"
+          class="form-control"
+          type="hidden"
+          name="bookinstanceid"
+          required
+          value="<%= bookinstance._id %>"
+        >
+      </div>
+      <button class="btn, btn-primary" type="submit">
+        Delete
+      </button>
+    </form>
+
+  </body>
+</html>
