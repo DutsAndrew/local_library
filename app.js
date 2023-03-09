@@ -3,20 +3,17 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const wikiRouter = require('./routes/wiki');
 const catalogRouter = require('./routes/catalog');
 const compression = require("compression");
 const helmet = require("helmet");
-
 const app = express();
 
 // mongoose connection and set up
 const mongoose = require('mongoose');
-const dev_db_url = 'mongodb+srv://admin:admin@library.dkpdfru.mongodb.net/local_library?retryWrites=true&w=majority';
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+const mongoDB = process.env.MONGODB_URI || process.env.developmentMongoDbURI;
 mongoose.set('strictQuery', false);
 
 main().catch(err => console.log(err));
