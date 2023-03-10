@@ -10,10 +10,11 @@ const catalogRouter = require('./routes/catalog');
 const compression = require("compression");
 const helmet = require("helmet");
 const app = express();
+require('dotenv').config();
 
 // mongoose connection and set up
 const mongoose = require('mongoose');
-const mongoDB = process.env.MONGODB_URI || process.env.developmentMongoDbURI;
+const mongoDB = process.env.MONGODB_URI || process.env.DEVDB_URI;
 mongoose.set('strictQuery', false);
 
 main().catch(err => console.log(err));
